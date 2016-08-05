@@ -3,6 +3,7 @@ package spider;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.pipeline.JsonFilePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 public class GithubRepoPageProcessor implements PageProcessor {
@@ -27,6 +28,6 @@ public class GithubRepoPageProcessor implements PageProcessor {
     public static void main(String[] args) {
     	GithubRepoPageProcessor g =new GithubRepoPageProcessor();
     	//g.getSite().setCharset("UTF-8");
-        Spider.create(g).addUrl("http://www.97xiao.com/").thread(5).run();
+        Spider.create(g).addUrl("http://www.97xiao.com/").addPipeline(new JsonFilePipeline("D:\\webmagic\\")).thread(5).run();
     }
 }
